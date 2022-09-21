@@ -7,6 +7,7 @@ select avg(price) from products;
 select avg(price) from products where manufacturer=2;
 select count(name) from products where price >=180;
 select name,price from products where price >= 180 order by price desc, name;
+select m.name,p.name,p.price from products p inner join manufacturers m on p.manufacturer=m.code;
 select avg(price),manufacturer from products group by manufacturer;
 select avg(p.price),m.name from products p inner join manufacturers m on p.manufacturer = m.code group by p.manufacturer;
 select name from manufacturers where code in (select manufacturer from products group by manufacturer having avg(price) >=150);
