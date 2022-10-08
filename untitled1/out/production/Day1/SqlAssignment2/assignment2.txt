@@ -1,0 +1,8 @@
+select name,population,area from World where area >= 3000000 or population >= 25000000;
+update salary set sex = case sex when 'm' then 'f' else 'm' end;
+select * from Cinema where id%2 != 0 and description != "boring" order by rating desc;
+select email from Person where id in (select id from person group by email having count(email) >1 );
+select firstName,lastName,city,state from person left join address on person.personid = address.personid;
+select a.name as Employee from Employee a join Employee b on a.managerId = b.id where a.salary > b.salary;
+select c.name as Customers from Customers c where id not in(select customerid from orders);
+delete p_one from Person p_one, Person p_two where p_one.Email = p_two.Email and p_one.Id > p_two.Id;  
